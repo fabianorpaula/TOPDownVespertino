@@ -9,6 +9,7 @@ public class Heroi : MonoBehaviour
     private Vector3 Destino;
     public GameObject Inimigo;
     public bool atacando = false;
+    public GameObject AreaDeAtk;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +53,7 @@ public class Heroi : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            Inimigo = null;
             Vector3 mousepoint = Input.mousePosition;
             Ray castpoint = Camera.main.ScreenPointToRay(mousepoint);
             RaycastHit hit;
@@ -62,5 +64,16 @@ public class Heroi : MonoBehaviour
         }
 
         Agente.SetDestination(Destino);
+    }
+
+
+    public void AtivarAtk()
+    {
+        AreaDeAtk.SetActive(true);
+    }
+
+    public void DesativarAtk()
+    {
+        AreaDeAtk.SetActive(false);
     }
 }
