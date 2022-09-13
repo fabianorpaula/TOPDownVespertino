@@ -45,6 +45,15 @@ public class Heroi : MonoBehaviour
         {
             Destino = Inimigo.transform.position;
             Agente.SetDestination(Destino);
+            if(Vector3.Distance(transform.position, Destino) < 3)
+            {
+                GetComponent<Animator>().SetBool("Atacando", true);
+                transform.LookAt(Destino);
+            }
+        }
+        else
+        {
+            GetComponent<Animator>().SetBool("Atacando", false);
         }
         
     }
@@ -64,6 +73,15 @@ public class Heroi : MonoBehaviour
         }
 
         Agente.SetDestination(Destino);
+        if (Vector3.Distance(transform.position, Destino) < 1)
+        {
+            GetComponent<Animator>().SetBool("Andando", false);
+
+        }
+        else
+        {
+            GetComponent<Animator>().SetBool("Andando", true);
+        }
     }
 
 
