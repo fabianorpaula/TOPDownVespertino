@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class InimigoAtk : MonoBehaviour
 {
     private GameObject Heroi;
     private NavMeshAgent Agente;
     public int vida = 10;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,8 @@ public class InimigoAtk : MonoBehaviour
     void Update()
     {
         Agente.SetDestination(Heroi.transform.position);
+
+       
     }
 
     private void OnTriggerEnter(Collider colisao)
