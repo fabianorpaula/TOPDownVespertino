@@ -19,8 +19,8 @@ public class Mae : MonoBehaviour
     {
         if (onda < 10)
         {
-            tempo++;
-            if (tempo > 300)
+            tempo += Time.deltaTime;
+            if (tempo > 2)
             {
                 tempo = 0;
                 int numero = onda * 5;

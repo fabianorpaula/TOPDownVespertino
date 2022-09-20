@@ -10,6 +10,9 @@ public class Heroi : MonoBehaviour
     public GameObject Inimigo;
     public bool atacando = false;
     public GameObject AreaDeAtk;
+    public GameObject Poder1;
+    public bool poder1usado = false;
+    public float poder1resp;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +27,7 @@ public class Heroi : MonoBehaviour
     {
         Mover();
         Atacar();
+        Poderes();
     }
 
     void Atacar()
@@ -93,5 +97,31 @@ public class Heroi : MonoBehaviour
     public void DesativarAtk()
     {
         AreaDeAtk.SetActive(false);
+    }
+
+    public void Poderes()
+    {
+        if(poder1usado == false)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                Poder1.SetActive(true);
+                poder1usado = true;
+            }
+        }
+        else {
+            poder1resp += Time.deltaTime;
+            if(poder1resp >= 4)
+            {
+                Poder1.SetActive(false);
+            }if(poder1resp >= 10)
+            {
+                poder1resp = 0;
+                poder1usado = false;
+                
+            }
+        }
+
+        
     }
 }
