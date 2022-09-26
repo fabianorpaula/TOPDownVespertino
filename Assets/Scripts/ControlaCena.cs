@@ -17,20 +17,22 @@ public class ControlaCena : MonoBehaviour
         
     }
 
+    public void IniciarJogo()
+    {
+        PlayerPrefs.SetInt("Cena", 1);
+        SceneManager.LoadScene(1);
+    }
+
+    public void ContinuarJogo()
+    {
+        int cenaAtual = PlayerPrefs.GetInt("Cena");
+        SceneManager.LoadScene(cenaAtual);
+    }
+
     public void ChamarCena(int numCena)
     {
-        if(numCena == 1)
-        {
-            SceneManager.LoadScene(1);
-        }
-        if (numCena == 2)
-        {
-            SceneManager.LoadScene(2);
-        }
-        if (numCena == 3)
-        {
-            SceneManager.LoadScene(3);
-        }
+            SceneManager.LoadScene(numCena);
+       
     }
 
 }

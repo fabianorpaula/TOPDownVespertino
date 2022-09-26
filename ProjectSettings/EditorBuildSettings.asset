@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cena3.unity
     guid: 439e7f9c5b68556458d7f7e43cd004dc
+  - enabled: 1
+    path: Assets/Scenes/CenaVitoria.unity
+    guid: 7813c1b94f82b2d4b96dbad7bab95976
+  - enabled: 1
+    path: Assets/Scenes/CenaDerrota.unity
+    guid: d3499e825cf837044809377390f134cb
   m_configObjects: {}
