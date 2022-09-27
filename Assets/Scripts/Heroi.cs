@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Heroi : MonoBehaviour
 {
@@ -13,7 +14,15 @@ public class Heroi : MonoBehaviour
     public GameObject Poder1;
     public bool poder1usado = false;
     public float poder1resp;
+    public Slider BarraHp;
+    public Slider BarraMana;
+    public int vida = 100;
+    public int vidaMax = 100;
+    public int mana = 100;
+    public int manaMax = 100;
 
+
+    public LayerMask LM;
     // Start is called before the first frame update
     void Start()
     {
@@ -107,6 +116,8 @@ public class Heroi : MonoBehaviour
             {
                 Poder1.SetActive(true);
                 poder1usado = true;
+                mana = mana - 10;
+                BarraMana.value = mana;
             }
         }
         else {
@@ -124,4 +135,19 @@ public class Heroi : MonoBehaviour
 
         
     }
+
+
+    private void OnTriggerEnter(Collider colisao)
+    {
+        if (colisao.gameObject.tag == "AreaAtkInimigo")
+        {
+            vida--;
+            BarraHp.value = vida;
+            if (vida <= 0)
+            {
+                //Destroy(this.gameObject);
+            }
+        }
+    }
+
 }

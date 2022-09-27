@@ -12,6 +12,7 @@ public class InimigoAtk : MonoBehaviour
     public int vida = 10;
     public int vidaMax = 10;
     public Slider BarraHP;
+    public GameObject AreaDeAtk;
    
     void Start()
     {
@@ -26,12 +27,23 @@ public class InimigoAtk : MonoBehaviour
     {
         if(colisao.gameObject.tag == "AreaAtkHeroi")
         {
-            vida--;
+            vida = vida - 6;
             BarraHP.value = vida;
             if(vida <= 0)
             {
                 Destroy(this.gameObject);
             }
         }
+    }
+
+
+    public void AtivarAtk()
+    {
+        AreaDeAtk.SetActive(true);
+    }
+
+    public void DesativarAtk()
+    {
+        AreaDeAtk.SetActive(false);
     }
 }
