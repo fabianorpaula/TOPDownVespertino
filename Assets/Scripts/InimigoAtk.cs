@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 
 public class InimigoAtk : MonoBehaviour
@@ -10,7 +11,7 @@ public class InimigoAtk : MonoBehaviour
     private NavMeshAgent Agente;
     public int vida = 10;
     public int vidaMax = 10;
-    public GameObject BarraHP;
+    public Slider BarraHP;
    
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,7 @@ public class InimigoAtk : MonoBehaviour
         if(colisao.gameObject.tag == "AreaAtkHeroi")
         {
             vida--;
+            BarraHP.value = vida;
             if(vida <= 0)
             {
                 Destroy(this.gameObject);
