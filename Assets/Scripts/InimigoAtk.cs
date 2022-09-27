@@ -13,21 +13,15 @@ public class InimigoAtk : MonoBehaviour
     public int vidaMax = 10;
     public Slider BarraHP;
    
-    // Start is called before the first frame update
     void Start()
     {
         Agente = GetComponent<NavMeshAgent>();
         Heroi = GameObject.FindGameObjectWithTag("Player");
     }
-
-    // Update is called once per frame
     void Update()
     {
         Agente.SetDestination(Heroi.transform.position);
-        
-
     }
-
     private void OnTriggerEnter(Collider colisao)
     {
         if(colisao.gameObject.tag == "AreaAtkHeroi")
